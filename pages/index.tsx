@@ -5,12 +5,15 @@ import Link from "next/link";
 import {AboutMe, Article} from "../types/types";
 import About from "../components/about";
 
-export const getStaticProps = async () => {
-  const data = await fetch(`${url}/api/articles`);
-  const list: Article[] = (await data.json()).data;
+const fetchData = async <T,>(path: string) => {
+    const response = await fetch(`${url}/api/${path}`)
+    const data: T = (await response.json()).data
+    return data
+}
 
-    const res = await fetch(`${url}/api/about-me`);
-    const about: AboutMe = (await res.json()).data;
+export const getStaticProps = async () => {
+    const list = await fetchData<Article[]>("articles")
+    const about = await fetchData<AboutMe>("about-me")
 
   return {
     props: {
