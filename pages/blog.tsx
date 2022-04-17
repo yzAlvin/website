@@ -21,6 +21,7 @@ const Blog = ({list}: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <Link href={`/article/${item.id}`}>
                     <a>{item.attributes.title}</a>
                 </Link>
+                <p>{item.attributes.blurb}</p>
             </li>))}
         </ul>
     </>)
