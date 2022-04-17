@@ -22,7 +22,7 @@ const Projects = ({list}: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <Link href={`/projects/${item.attributes.slug}`}>
                     <a>{item.attributes.title}</a>
                 </Link>
-                {item.attributes.cover.data?.attributes.url && <Image src={item.attributes.cover.data.attributes.url}/>}
+                {item.attributes.cover.data?.attributes.url && <Image src={item.attributes.cover.data.attributes.url} alt={item.attributes.cover.data.attributes.alternativeText}/>}
             </li>))}
         </ul>
     </>)

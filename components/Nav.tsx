@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function Nav() {
     return (
         <nav>
-            <a href="/blog/">Blog</a>
-            <a href="/projects/">Projects</a>
+            <Link href="/blog/">Blog</Link>
+            <Link href="/projects/">Projects</Link>
         </nav>
     );
 }
