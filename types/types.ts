@@ -25,7 +25,7 @@ export type AboutMeAttributes = {
 
 export type ApiResponse = {
     data: any;
-    meta: { pagination: {
+    meta?: { pagination: {
         page: number;
         pageSize: number;
         pageCount: number;
