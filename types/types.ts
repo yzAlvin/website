@@ -9,6 +9,7 @@ export type ArticleAttributes = {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    blurb: string;
 }
 
 export type AboutMe = {
@@ -21,6 +22,9 @@ export type AboutMeAttributes = {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    github: string;
+    linkedin: string;
+    mailto: string;
 }
 
 export type Project = {
@@ -37,10 +41,11 @@ export type ProjectAttributes = {
     slug: string;
     projectLink: string;
     repoLink: string;
+    cover: {data: {attributes: {url: string;}}}
 }
 
 export type ApiResponse = {
-    data: any;
+    data: AboutMe;
     meta?: { pagination: {
         page: number;
         pageSize: number;
