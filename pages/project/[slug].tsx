@@ -1,9 +1,10 @@
 import {url} from "../../next.config"
 import ReactMarkdown from "react-markdown";
 import {GetStaticProps, InferGetStaticPropsType} from "next";
-import {Project} from "../../types/types";
+import {Article, Project} from "../../types/types";
 import Link from "next/link";
 import {FiExternalLink, FiGithub} from "react-icons/fi";
+import {fetchData} from "../../utils";
 
 const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
@@ -19,12 +20,10 @@ const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => 
 export default Projects
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const allProjects = await fetch(`${url}/api/projects`)
-    const allProjectsData = (await allProjects.json()).data;
-    const projectResponse: Project = allProjectsData.find((p: Project) => p.attributes.slug === context.params!.slug);
+    const allProjectsData = await fetchData<Project[]>("projects")
+    const projectResponse: Project = allProjectsData.find((p: Project) => p.attributes.slug === context.params!.slug)!;
 
-    const data = await fetch(`${url}/api/projects/${projectResponse.id}`);
-    const project: Project = (await data.json()).data;
+    const project: Project = await fetchData<Project>(`projects/${projectResponse.id}`)
 
     return {
         props: { project },
@@ -32,8 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
 };
 export async function getStaticPaths() {
-    const res = await fetch(`${url}/api/projects`);
-    const projects: Project[] = (await res.json()).data;
+    const projects = await fetchData<Project[]>("projects")
 
     const paths = projects.map((item) => ({
         params: { slug: item.attributes.slug },

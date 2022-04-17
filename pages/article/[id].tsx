@@ -2,6 +2,7 @@ import {url} from "../../next.config"
 import ReactMarkdown from "react-markdown";
 import {GetStaticProps, InferGetStaticPropsType} from "next";
 import {Article} from "../../types/types";
+import {fetchData} from "../../utils";
 
 const Article = ({article}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
@@ -15,8 +16,7 @@ const Article = ({article}: InferGetStaticPropsType<typeof getStaticProps>) => {
 export default Article
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const data = await fetch(`${url}/api/articles/${context.params!.id}`);
-    const article: Article = (await data.json()).data;
+    const article = await fetchData<Article>(`articles/${context.params!.id}`)
 
     return {
         props: { article },
@@ -24,8 +24,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
 };
 export async function getStaticPaths() {
-    const res = await fetch(`${url}/api/articles`);
-    const articles: Article[] = (await res.json()).data;
+    const articles = await fetchData<Article[]>("articles")
 
     const paths = articles.map((item) => ({
         params: { id: item.id.toString() },
