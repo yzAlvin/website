@@ -23,6 +23,22 @@ export type AboutMeAttributes = {
     publishedAt: string;
 }
 
+export type Project = {
+    id: string;
+    attributes: ProjectAttributes;
+}
+
+export type ProjectAttributes = {
+    title: string;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    slug: string;
+    projectLink: string;
+    repoLink: string;
+}
+
 export type ApiResponse = {
     data: any;
     meta?: { pagination: {
