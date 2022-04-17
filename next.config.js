@@ -9,6 +9,6 @@ const url = production ? "https://yzalvin-cms.herokuapp.com" : "http://localhost
 
 module.exports = {
     nextConfig, url, images: {
-        domains: ['res.cloudinary.com/alvinzhao/'],
+        domains: ["res.cloudinary.com"],
     },
 };

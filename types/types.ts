@@ -41,7 +41,7 @@ export type ProjectAttributes = {
     slug: string;
     projectLink: string;
     repoLink: string;
-    cover: {data: {attributes: {url: string; alternativeText: string;}}}
+    cover: {data: {attributes: {name: string; url: string; alternativeText: string; formats: {small: {url: string}; medium: {url: string}; thumbnail: {url: string};}}}}
 }
 
 export type ApiResponse = {
