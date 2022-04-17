@@ -7,7 +7,7 @@ export default function About({ data }: InferGetStaticPropsType<typeof getStatic
     return (
         <div>
             <h1>About the author:</h1>
-            {data.attributes.Body}
+            {data.attributes.body}
         </div>
     );
 }

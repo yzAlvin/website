@@ -4,8 +4,8 @@ export type Article = {
 };
 
 export type ArticleAttributes = {
-    Title: string;
-    Body: string;
+    title: string;
+    body: string;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
@@ -17,7 +17,7 @@ export type AboutMe = {
 }
 
 export type AboutMeAttributes = {
-    Body: string;
+    body: string;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;

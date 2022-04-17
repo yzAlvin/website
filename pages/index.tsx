@@ -17,7 +17,6 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ list }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log("hi", list);
   return (
     <div>
       <Head>
@@ -29,7 +28,7 @@ const Home = ({ list }: InferGetStaticPropsType<typeof getStaticProps>) => {
         {list.map((item) => (
           <li key={item.id}>
             <Link href={`/article/${item.id}`}>
-              <a>{item.attributes.Title}</a>
+              <a>{item.attributes.title}</a>
             </Link>
           </li>
         ))}

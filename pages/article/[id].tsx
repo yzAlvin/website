@@ -6,8 +6,8 @@ import {Article} from "../../types/types";
 const Article = ({article}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <div>
-            <h1>{article.attributes.Title}</h1>
-            <ReactMarkdown>{article.attributes.Body}</ReactMarkdown>
+            <h1>{article.attributes.title}</h1>
+            <ReactMarkdown>{article.attributes.body}</ReactMarkdown>
         </div>
     )
 }
