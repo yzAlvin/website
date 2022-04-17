@@ -41,7 +41,20 @@ export type ProjectAttributes = {
     slug: string;
     projectLink: string;
     repoLink: string;
-    cover: {data: {attributes: {name: string; url: string; alternativeText: string; formats: {small: {url: string}; medium: {url: string}; thumbnail: {url: string};}}}}
+    cover?: {data: {attributes: {name: string; url: string; alternativeText: string; formats: {small: {url: string}; medium: {url: string}; thumbnail: {url: string};}}}}
+    tags: Tag[];
+}
+
+export type Tag = {
+    id: string;
+    attributes: TagAttributes;
+}
+
+export type TagAttributes = {
+    tag: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
 }
 
 export type ApiResponse = {
