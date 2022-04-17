@@ -11,8 +11,8 @@ const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => 
         <div>
             <h1>{project.attributes.title}</h1>
             <ReactMarkdown>{project.attributes.description}</ReactMarkdown>
-            <Link href={project.attributes.repoLink}><a><FiGithub /></a></Link>
-            <Link href={project.attributes.projectLink}><a><FiExternalLink/></a></Link>
+            {project.attributes.repoLink && <Link href={project.attributes.repoLink}><a><FiGithub /></a></Link>}
+            {project.attributes.projectLink && <Link href={project.attributes.projectLink}><a><FiExternalLink/></a></Link>}
         </div>
     )
 }
