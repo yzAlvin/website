@@ -4,12 +4,14 @@ import {Project, Tag} from "../../types/types";
 import Link from "next/link";
 import {FiExternalLink, FiGithub} from "react-icons/fi";
 import {fetchData} from "../../utils";
+import Image from "next/image";
 
 const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => {
     console.log('ss', project.attributes.tags)
     return (
         <div>
             <h1>{project.attributes.title}</h1>
+            {project.attributes.cover?.data?.attributes.url && <Image width={300} height={300} src={project.attributes.cover.data.attributes.formats.medium.url} alt={project.attributes.cover.data.attributes.alternativeText}/>}
             <ReactMarkdown>{project.attributes.description}</ReactMarkdown>
             {project.attributes.repoLink && <Link href={project.attributes.repoLink}><a><FiGithub/></a></Link>}
             {project.attributes.projectLink &&
