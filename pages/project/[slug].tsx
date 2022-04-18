@@ -20,7 +20,7 @@ const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => 
             <Nav/>
             <div className="has-text-light has-text-centered has-background-info p-5">
                 <p className="is-size-1">Project pages are under construction!</p>
-                <p className="is-size-2">I plan to write more in depth about each project beyond the short descriptions, but who knows when I'll actually do it :)</p>
+                <p className="is-size-2">I plan to write more in depth about each project beyond the short descriptions, but who knows when I will actually do it :)</p>
             </div>
             <div>
                 <h1 className="has-text-light title is-1 has-text-centered">{project.attributes.title}</h1>
