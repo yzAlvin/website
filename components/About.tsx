@@ -16,14 +16,7 @@ export default function About({data}: ApiResponse) {
             {data.attributes.body}
         </p>
             <br/>
-        <p>
-            Currently a purchasing platform engineer; Helping teams launch products & improving customer browse to
-            purchase flows at MYOB.
-        </p>
-            <br/>
-        <p>
-            Not that cooking guy
-        </p>
+        <p>Not that cooking guy</p>
         </section>
     </>;
 }
