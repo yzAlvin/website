@@ -5,7 +5,7 @@ import {InferGetStaticPropsType} from "next";
 import Nav from "../components/Nav";
 
 export const getStaticProps = async () => {
-    const list = await fetchData<Article[]>("articles?populate=*")
+    const list = (await fetchData<Article[]>("articles?populate=*")).reverse()
 
     return {
         props: {
