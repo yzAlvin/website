@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import {useState} from "react";
 
 const HamburgerMenu = () => (<>
@@ -15,9 +17,11 @@ export default function Nav() {
 
     return (<nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-            <a className="navbar-item" href="https://yzalvin.dev">
-                <img src="https://orangemushroom.files.wordpress.com/2020/02/direction25.img_.yumyumi.face_.2.0_new.png" alt='logo'/>
-            </a>
+            <Link href="/">
+                <a  className="navbar-item" >
+                    <Image src="https://res.cloudinary.com/alvinzhao/image/upload/v1650284210/thumbnail_vonbon_0cc482f532.png" alt='logo' width={50} height={50}/>
+                </a>
+            </Link>
 
             <button role="button" className="navbar-burger" aria-label="menu" aria-expanded="false"
                     data-target="navbarBasicExample" onClick={() => toggleNav()}>
@@ -27,13 +31,13 @@ export default function Nav() {
 
         <div className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
             <div className="navbar-start">
-                <a href="/blog/" className="navbar-item has-text-light">
-                   Blog
-                </a>
+                <Link href="/blog/">
+                   <a className="navbar-item has-text-light">Blog</a>
+                </Link>
 
-                <a href="/projects/"  className="navbar-item has-text-light">
-                   Projects
-                </a>
+                <Link href="/projects/">
+                    <a className="navbar-item has-text-light">Projects</a>
+                </Link>
             </div>
         </div>
     </nav>);
