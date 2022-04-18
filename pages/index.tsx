@@ -21,6 +21,8 @@ const Home = ({about}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (<div>
             <Head>
                 <title>Alvin Zhao</title>
+                <link rel="shortcut icon" href="https://res.cloudinary.com/alvinzhao/image/upload/v1650300984/peepo_a2c628181d.ico" />
+                <meta property="og:image" content="https://res.cloudinary.com/alvinzhao/image/upload/v1650300395/splash_abcc033635.png" />
             </Head>
             <header>
                 <Nav/>
