@@ -26,7 +26,7 @@ const Blog = ({list}: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export default Blog;
 
-const BlogPost = (item: Article) => <div className="card blog-post has-background-grey-darker has-text-light mb-5 p-3">
+const BlogPost = (item: Article) => <div className="card blog-post-card has-background-grey-darker has-text-light mb-5 p-3">
     <Link href={`/article/${item.id}`}>
         <a>
             <p className="is-size-7 has-text-primary">{new Date(item.attributes.publishedAt).toDateString()}</p>
