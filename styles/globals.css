@@ -91,3 +91,8 @@ a.project-links{
 a:hover.project-links{
   color: #6b67ff;
 }
+
+.project-image {
+  display: flex;
+  justify-content: center;
+}

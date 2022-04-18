@@ -8,11 +8,11 @@ import {IconLink} from "../../components/IconLink";
 import Tag from "../../components/Tag";
 import Nav from "../../components/Nav";
 
-const ProjectLinks = (project) => <>
+const ProjectLinks = (project: InferGetStaticPropsType<typeof getStaticProps>) => <>
     {project.attributes.repoLink &&
-<IconLink link={project.attributes.repoLink}><FiGithub size={20}/></IconLink>}
+<IconLink link={project.attributes.repoLink}><FiGithub size={50}/></IconLink>}
     {project.attributes.projectLink &&
-<IconLink link={project.attributes.projectLink}><FiExternalLink size={20}/></IconLink>}
+<IconLink link={project.attributes.projectLink}><FiExternalLink size={50}/></IconLink>}
         </>
 
 const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -24,10 +24,12 @@ const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => 
             </div>
             <div>
                 <h1 className="has-text-light title is-1 has-text-centered">{project.attributes.title}</h1>
+                <div className="project-image"><ProjectLinks {...project}/></div>
+                <div className="project-image">
                 {project.attributes.cover?.data?.attributes.url && <Image width={600} height={300}
                                                                           src={buildUrl(project, 600, 300)}
                                                                           alt={project.attributes.cover.data.attributes.alternativeText}/>}
-                <ProjectLinks {...project}/>
+                </div>
                 <ReactMarkdown
                     className="markdown-body blog-body has-text-light">{project.attributes.description}</ReactMarkdown>
                 <h4 className="has-text-light mb-2 title is-4">Tags</h4>
