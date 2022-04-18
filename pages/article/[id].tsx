@@ -12,7 +12,7 @@ const Article = ({article}: InferGetStaticPropsType<typeof getStaticProps>) => {
             <Nav/>
             <div>
                 <h1 className="has-text-light title is-1 has-text-centered">{article.attributes.title}</h1>
-                <ReactMarkdown className='markdown-body' components={{code: CodeBlock}}
+                <ReactMarkdown className='markdown-body blog-body' components={{code: CodeBlock}}
                                >
                     {article.attributes.body}
                 </ReactMarkdown>

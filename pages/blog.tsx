@@ -1,8 +1,9 @@
 import Link from "next/link";
 import {fetchData} from "../utils";
-import {Article, Tag} from "../types/types";
+import {Article} from "../types/types";
 import {InferGetStaticPropsType} from "next";
 import Nav from "../components/Nav";
+import Tag from "../components/Tag";
 
 export const getStaticProps = async () => {
     const list = (await fetchData<Article[]>("articles?populate=*")).reverse()
@@ -32,10 +33,7 @@ const BlogPost = (item: Article) => <div className="card blog-post-card has-back
             <p className="is-size-7 has-text-primary">{new Date(item.attributes.publishedAt).toDateString()}</p>
             <h2 className="title is-3 has-text-light is-underlined">{item.attributes.title}</h2>
             <p className="content has-text-light">{item.attributes.blurb}</p>
-            {item.attributes.tags.data && item.attributes.tags.data.map((tag: Tag) => <span key={tag.id}
-                                                                                            className="tag has-text-primary has-background-black-ter m-1">
-                    {tag.attributes.tag}
-                </span>)}
+            {item.attributes.tags.data && item.attributes.tags.data.map((tag) => <Tag key={tag.id} {...tag}/>)}
         </a>
     </Link>
 </div>

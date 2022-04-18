@@ -42,8 +42,8 @@ export type ProjectAttributes = {
     slug: string;
     projectLink: string;
     repoLink: string;
-    cover?: {data: {attributes: {name: string; url: string; alternativeText: string; formats: {small: {url: string}; medium: {url: string}; thumbnail: {url: string};}}}}
-    tags: Tag[];
+    cover?: {data: {attributes: {name: string; hash: string; url: string; alternativeText: string; formats: {small: {url: string}; medium: {url: string}; thumbnail: {url: string};}}}}
+    tags: {data?: Tag[]};
 }
 
 export type Tag = {

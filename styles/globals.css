@@ -54,20 +54,19 @@ a {
   transition: all .4s ease;
 }
 
-.tag {
-  max-width: 50px;
+.blog-body {
+  margin: auto !important;
+  max-width: 65%;
+  padding: 45px;
 }
 
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
-  max-width: 65%;
-  margin: auto !important;
-  padding: 45px;
 }
 
 @media (max-width: 767px) {
-  .markdown-body {
+  .blog-body {
     padding: 15px;
     margin: auto;
   }
