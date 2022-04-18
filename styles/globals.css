@@ -76,6 +76,18 @@ a {
   color: #00d1b2 !important;
 }
 
+.markdown-body a:hover {
+  color: #6b67ff !important;
+}
+
 .markdown-body ul {
   list-style: circle;
+}
+
+.project-links {
+  color: #00d1b2;
+}
+
+.project-links a:hover {
+  color: #6b67ff;
 }
