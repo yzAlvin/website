@@ -63,6 +63,7 @@ a {
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
+  background-color: unset !important;
 }
 
 @media (max-width: 767px) {
@@ -95,4 +96,9 @@ a:hover.project-links{
 .project-image {
   display: flex;
   justify-content: center;
+}
+
+.recent {
+  margin: auto;
+  max-width: 80%;
 }
