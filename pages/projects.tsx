@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {fetchData} from "../utils";
+import {buildUrl, fetchData} from "../utils";
 import {Project} from "../types/types";
 import {InferGetStaticPropsType} from "next";
 import Image from 'next/image'
@@ -7,6 +7,7 @@ import Nav from "../components/Nav";
 import ReactMarkdown from "react-markdown";
 import Tag from "../components/Tag";
 import {FiExternalLink, FiGithub} from "react-icons/fi";
+import {IconLink} from "../components/IconLink";
 
 export const getStaticProps = async () => {
     const list = await fetchData<Project[]>("projects?populate=*")
@@ -17,8 +18,6 @@ export const getStaticProps = async () => {
         }, revalidate: 1,
     };
 };
-
-const buildUrl = (project: Project, width: Number, height: Number) => `https://res.cloudinary.com/alvinzhao/image/upload/w_${width},h_${height},c_fill/${project.attributes.cover?.data.attributes.hash}`
 
 const Projects = ({list}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (<>
@@ -39,13 +38,12 @@ const Project = (item: Project) => <div className="card blog-post-card has-backg
                 </div>
                 <div className="column">
                     <h3 className="title is-5 has-text-light mb-3">{item.attributes.title}</h3>
-                    <div className="project-links">
-                        {item.attributes.repoLink &&
-                            <a href={item.attributes.repoLink} target="_blank" rel="noreferrer"><FiGithub
-                                size={20}/></a>}
-                        {item.attributes.projectLink && <a href={item.attributes.projectLink} target="_blank"
-                                                           rel="noreferrer"><FiExternalLink size={20}/></a>}
-                    </div>
+                        {item.attributes.repoLink && <IconLink link={item.attributes.repoLink}>
+                            <FiGithub size={20}/>
+                        </IconLink>}
+                        {item.attributes.projectLink && <IconLink link={item.attributes.repoLink}>
+                            <FiExternalLink size={20}/>
+                        </IconLink>}
                     <ReactMarkdown
                         className="subtitle is-6 has-text-light markdown-body mb-3">{item.attributes.description}</ReactMarkdown>
                     {item.attributes.tags.data && item.attributes.tags.data.map((tag) => <Tag

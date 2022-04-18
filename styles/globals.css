@@ -84,10 +84,10 @@ a {
   list-style: circle;
 }
 
-.project-links {
+a.project-links{
   color: #00d1b2;
 }
 
-.project-links a:hover {
+a:hover.project-links{
   color: #6b67ff;
 }

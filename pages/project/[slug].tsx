@@ -1,26 +1,41 @@
 import ReactMarkdown from "react-markdown";
 import {GetStaticProps, InferGetStaticPropsType} from "next";
-import {Project, Tag} from "../../types/types";
-import Link from "next/link";
+import {Project, Tag as TagType} from "../../types/types";
 import {FiExternalLink, FiGithub} from "react-icons/fi";
-import {fetchData} from "../../utils";
+import {buildUrl, fetchData} from "../../utils";
 import Image from "next/image";
+import {IconLink} from "../../components/IconLink";
+import Tag from "../../components/Tag";
+import Nav from "../../components/Nav";
+
+const ProjectLinks = (project) => <>
+    {project.attributes.repoLink &&
+<IconLink link={project.attributes.repoLink}><FiGithub size={20}/></IconLink>}
+    {project.attributes.projectLink &&
+<IconLink link={project.attributes.projectLink}><FiExternalLink size={20}/></IconLink>}
+        </>
 
 const Projects = ({project}: InferGetStaticPropsType<typeof getStaticProps>) => {
-    console.log('ss', project.attributes.tags)
-    return (
-        <div>
-            <h1>{project.attributes.title}</h1>
-            {project.attributes.cover?.data?.attributes.url && <Image width={300} height={300} src={project.attributes.cover.data.attributes.formats.medium.url} alt={project.attributes.cover.data.attributes.alternativeText}/>}
-            <ReactMarkdown>{project.attributes.description}</ReactMarkdown>
-            {project.attributes.repoLink && <Link href={project.attributes.repoLink}><a><FiGithub/></a></Link>}
-            {project.attributes.projectLink &&
-                <Link href={project.attributes.projectLink}><a><FiExternalLink/></a></Link>}
-            <h4>Tags</h4>
-            <ul>
-                {project.attributes.tags.data.map((t: Tag) => <li key={t.attributes.tag}>{t.attributes.tag}</li>)}
-            </ul>
-        </div>
+    return (<>
+            <Nav/>
+            <div className="has-text-light has-text-centered has-background-info p-5">
+                <p className="is-size-1">Project pages are under construction!</p>
+                <p className="is-size-2">I plan to write more in depth about each project beyond the short descriptions, but who knows when I'll actually do it :)</p>
+            </div>
+            <div>
+                <h1 className="has-text-light title is-1 has-text-centered">{project.attributes.title}</h1>
+                {project.attributes.cover?.data?.attributes.url && <Image width={600} height={300}
+                                                                          src={buildUrl(project, 600, 300)}
+                                                                          alt={project.attributes.cover.data.attributes.alternativeText}/>}
+                <ProjectLinks {...project}/>
+                <ReactMarkdown
+                    className="markdown-body blog-body has-text-light">{project.attributes.description}</ReactMarkdown>
+                <h4 className="has-text-light mb-2 title is-4">Tags</h4>
+                {project.attributes.tags.data.map((tag: TagType) => <Tag
+                    key={tag.id} {...tag}/>)}
+            </div>
+        </>
+
     )
 }
 
@@ -33,8 +48,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const project: Project = await fetchData<Project>(`projects/${projectResponse.id}?populate=*`)
 
     return {
-        props: {project},
-        revalidate: 1,
+        props: {project}, revalidate: 1,
     };
 };
 
