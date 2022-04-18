@@ -10,6 +10,7 @@ export type ArticleAttributes = {
     updatedAt: string;
     publishedAt: string;
     blurb: string;
+    tags: {data?: Tag[]};
 }
 
 export type AboutMe = {

@@ -3,6 +3,7 @@ import {fetchData} from "../utils";
 import {Project} from "../types/types";
 import {InferGetStaticPropsType} from "next";
 import Image from 'next/image'
+import Nav from "../components/Nav";
 
 export const getStaticProps = async () => {
     const list = await fetchData<Project[]>("projects?populate=*")
@@ -16,7 +17,8 @@ export const getStaticProps = async () => {
 
 const Projects = ({list}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (<>
-        <h1>Projects</h1>
+        <Nav/>
+        <h1 className="has-text-light title is-1 has-text-centered">Projects</h1>
         <ul>
             {list.map((item) => (<li key={item.id}>
                 <Link href={`/project/${item.attributes.slug}`}>
