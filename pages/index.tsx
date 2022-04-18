@@ -11,24 +11,21 @@ export const getStaticProps = async () => {
     return {
         props: {
             about,
-        },
-        revalidate: 1,
+        }, revalidate: 1,
     };
 };
 
 const Home = ({about}: InferGetStaticPropsType<typeof getStaticProps>) => {
-    return (
-        <div>
+    return (<div>
             <Head>
                 <title>Alvin Zhao</title>
             </Head>
             <header>
                 <Nav/>
             </header>
-            <h1>Alvin Zhao</h1>
+            <h1 className="has-text-light title is-1 has-text-centered">Alvin Zhao</h1>
             <About data={about}/>
-        </div>
-    );
+        </div>);
 };
 
 export default Home;
