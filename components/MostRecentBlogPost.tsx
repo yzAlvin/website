@@ -14,7 +14,7 @@ export const MostRecentBlogPost = () => {
         fetchMostRecentBlogPost().then(p =>
             setPost(p)
         )
-    })
+    }, [])
 
     return post ? <>
             <h5 className='has-text-light title is-5'>{post.attributes.title}</h5>

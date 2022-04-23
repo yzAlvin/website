@@ -1,8 +1,7 @@
-import {Project, Tag as TagType} from "../types/types";
+import {Project} from "../types/types";
 import {useEffect, useState} from "react";
 import {fetchData} from "../utils";
 import Link from "next/link";
-import Tag from "./Tag";
 import ReactMarkdown from "react-markdown";
 
 const fetchMostRecentProject = async () => {
@@ -16,7 +15,7 @@ export const MostRecentProject = () => {
         fetchMostRecentProject().then(p =>
             setProject(p)
         )
-    })
+    }, [])
 
     return project ? <>
             <h5 className='has-text-light title is-5'>{project.attributes.title}</h5>
