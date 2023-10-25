@@ -6,7 +6,7 @@ export default function ProjectsPage() {
     <>
       <Nav />
       <main className="m-8">
-        <p>Won't be tracking open source contributions here, look at GitHub/GitLab/BitBucket..</p>
+        <p>Won&apos;t be tracking open source contributions here, look at GitHub/GitLab/BitBucket..</p>
         <p>I try to make a lot of stuff, some useful and some not</p>
         <p>Usually to try new tech but sometimes when I have what I think is a good idea :)</p>
         <br/>

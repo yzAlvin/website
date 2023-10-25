@@ -1,6 +1,6 @@
 type ProjectProps = {
   name: string
-  description: string | null
+  description?: string
 }
 
 export default function Project({name, description}: ProjectProps) {
