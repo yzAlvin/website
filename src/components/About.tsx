@@ -9,7 +9,7 @@ export default function About() {
 
       <p>Currently digitising eye care @ iCare</p>
 
-      <div className="flex flex-row items-center gap-8">
+      {/* <div className="flex flex-row items-center gap-8">
         <a className="hover:text-violet-400" href={"https://github.com/yzalvin/"} target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faGithub} width="50" />
         </a>
@@ -19,7 +19,7 @@ export default function About() {
         <a className="hover:text-violet-400" href={"mailto:yzalvin@duck.com"} target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faEnvelope} width="50" />
         </a>
-      </div>
+      </div> */}
     </>
   )
 }
