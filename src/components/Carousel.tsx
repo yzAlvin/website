@@ -9,7 +9,7 @@ export default function Carousel() {
     return (
         <div className="rounded-xl rounded bg-white relative text-center p-4 flex-col lg:w-1/2 w-10/12">
             <ACarousel show={1} slide={1} swiping={true} swipeOn={0.5} navigation={Dot} className="flex items-center justify-center text-center">
-            <div className="mb-4">
+            <div className="mb-6">
                 <img src='/couple.jpeg' alt={'photo'} className="rounded-lg grayscale drop-shadow-2xl h-96 w-full object-cover" />
                 <div className="mt-8" >
                     <h2 className="mb-4 font-bold text-xl text-slate-900">Photo Share</h2>
@@ -23,7 +23,7 @@ export default function Carousel() {
                     </a>
                 </div>
             </div>
-            <div className="mb-4">
+            <div className="mb-6">
                 <img src='/couple.jpeg' alt={'photo'} className="rounded-lg grayscale drop-shadow-2xl h-96 w-full object-cover" />
                 <div className="mt-8" >
                     <h2 className="mb-4 font-bold text-xl text-slate-900">BOOM</h2>
