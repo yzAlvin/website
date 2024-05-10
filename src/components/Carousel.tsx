@@ -14,6 +14,25 @@ const Dot = (selected: boolean) =>
     <svg className={selected ? `h-2 fill-black mx-1` : `h-2 fill-slate-400 mx-1`} xmlns="http://www.w3.org/2000/svg" viewBox="7.8 7.8 4.4 4.4"><path d="M7.8 10a2.2 2.2 0 0 0 4.4 0 2.2 2.2 0 0 0-4.4 0z" /></svg>
 
 export default function Carousel() {
+    const handleUpload = async (event) => {
+        event.preventDefault();
+        const form = event.target
+        const file = form[0].files[0]
+
+        const { url } = await fetch("/wedding/photos").then(res => res.json())
+
+        await fetch(url, {
+            method: "PUT",
+            headers: {
+            "Content-Type": "multipart/form-data"
+            },
+            body: file
+        })
+
+        const imageUrl = url.split('?')[0]
+        console.log(imageUrl)
+    };
+
     return (
         <div className="rounded-xl rounded bg-white relative text-center p-4 flex-col lg:w-1/2 w-10/12">
             <ACarousel show={1} slide={1} swiping={true} swipeOn={0.2} navigation={Dot} className="flex items-center justify-center text-center">
@@ -24,11 +43,22 @@ export default function Carousel() {
 
                     <p className="mb-6 px-4 text-slate-800">We are so happy you are celebrating with us and we would love to see your lovely faces!</p>
 
-                    <a href="http://google.com">
-                        <div className="border rounded-lg xl:w-1/3 w-2/3 mx-auto p-2 text-slate-900 transition bg-gray-200 hover:bg-gray-400">
-                            Upload Your Photos!
-                        </div>
-                    </a>
+                    <Dialog>
+                        <DialogTrigger className="border rounded-lg xl:w-1/3 w-2/3 mx-auto p-2 text-slate-900 transition bg-gray-200 hover:bg-gray-400">Upload</DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                            <DialogTitle>You are too kind</DialogTitle>
+                            <DialogDescription>
+                                <p>Uploading photos can be a bit slow! Please be patient</p>
+                                <form onSubmit={handleUpload}>
+                                    <input id="imageInput" type="file" accept="image/*"/>
+                                    <br/>
+                                    <button className="border rounded-lg xl:w-1/3 w-2/3 mx-auto p-2 text-slate-900 transition bg-gray-200 hover:bg-gray-400" type="submit">Upload</button>
+                                </form>
+                            </DialogDescription>
+                            </DialogHeader>
+                        </DialogContent>
+                    </Dialog>
                 </div>
             </div>
             <div className="mb-6">
