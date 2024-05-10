@@ -2,10 +2,11 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import {
   getSignedUrl,
 } from "@aws-sdk/s3-request-presigner";
+import 'dotenv/config'
 
 const client = new S3Client({
-    region: "ap-southeast-2",
-    credentials: { accessKeyId: '', secretAccessKey: '' },
+    region: process.env.S3_BUCKET_REGION!,
+    credentials: { accessKeyId: process.env.S3_USER_ACCESS_KEY_ID!, secretAccessKey: process.env.S3_USER_SECRET_ACCESS_KEY! },
 });
 
 export async function GET(request: Request) {
@@ -13,13 +14,14 @@ export async function GET(request: Request) {
         const url= await generateUploadUrl()
         return Response.json({ url })
     } catch (error) {
+        console.error(error)
     } finally {
     }
 }
 
 function generateUploadUrl() {
     const imageName = `someImageName-${Date.now()}`
-    const command = new PutObjectCommand({ Bucket: "", Key: imageName });
+    const command = new PutObjectCommand({ Bucket: process.env.S3_BUCKET_NAME!, Key: imageName });
 
     return getSignedUrl(client, command, { expiresIn: 3600 });
 }
