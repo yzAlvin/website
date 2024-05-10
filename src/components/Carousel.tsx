@@ -3,14 +3,14 @@
 import { Carousel as ACarousel } from '@trendyol-js/react-carousel';
 
 const Dot = (selected: boolean) =>
-    <svg className={selected ? `h-2 fill-black mr-2` : `h-2 fill-slate-400 mr-2`} xmlns="http://www.w3.org/2000/svg" viewBox="7.8 7.8 4.4 4.4"><path d="M7.8 10a2.2 2.2 0 0 0 4.4 0 2.2 2.2 0 0 0-4.4 0z" /></svg>
+    <svg className={selected ? `h-2 fill-black mx-1` : `h-2 fill-slate-400 mx-1`} xmlns="http://www.w3.org/2000/svg" viewBox="7.8 7.8 4.4 4.4"><path d="M7.8 10a2.2 2.2 0 0 0 4.4 0 2.2 2.2 0 0 0-4.4 0z" /></svg>
 
 export default function Carousel() {
     return (
         <div className="rounded-xl rounded bg-white relative text-center p-4 flex-col lg:w-1/2 w-10/12">
-            <ACarousel show={1} slide={1} swiping={true} swipeOn={0.5} navigation={Dot} className="flex items-center justify-center text-center">
+            <ACarousel show={1} slide={1} swiping={true} swipeOn={0.2} navigation={Dot} className="flex items-center justify-center text-center">
             <div className="mb-6">
-                <img src='/couple.jpeg' alt={'photo'} className="rounded-lg grayscale drop-shadow-2xl h-96 w-full object-cover" />
+                <img src='/couple.jpeg' alt={'photo'} className="rounded-lg grayscale drop-shadow-2xl h-96 w-full object-cover select-none" />
                 <div className="mt-8" >
                     <h2 className="mb-4 font-bold text-xl text-slate-900">Photo Share</h2>
 
