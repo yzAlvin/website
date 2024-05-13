@@ -15,23 +15,29 @@ const Dot = (selected: boolean) =>
 
 export default function Carousel() {
     const handleUpload = async (event) => {
-        event.preventDefault();
-        const form = event.target
-        const file = form[0].files[0]
+      event.preventDefault();
 
+      const form = event.target
+      const files = form[0].files
+
+      for (const file of files) {
         const { url } = await fetch("/wedding/photos").then(res => res.json())
-
-        await fetch(url, {
-            method: "PUT",
-            headers: {
-            "Content-Type": "multipart/form-data"
-            },
-            body: file
-        })
+        await uploadToS3(url, file)
 
         const imageUrl = url.split('?')[0]
         console.log(imageUrl)
+      }
     };
+
+    const uploadToS3 = async (url: string, file: File) => {
+      await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+        body: file
+      })
+    }
 
     return (
         <div className="rounded-xl rounded bg-white relative text-center p-4 flex-col lg:w-1/2 w-10/12">
@@ -51,7 +57,7 @@ export default function Carousel() {
                             <DialogDescription>
                                 <p>Uploading photos can be a bit slow! Please be patient</p>
                                 <form onSubmit={handleUpload}>
-                                    <input id="imageInput" type="file" accept="image/*"/>
+                                    <input id="imageInput" type="file" accept="image/*" multiple/>
                                     <br/>
                                     <button className="border rounded-lg xl:w-1/3 w-2/3 mx-auto p-2 text-slate-900 transition bg-gray-200 hover:bg-gray-400" type="submit">Upload</button>
                                 </form>
