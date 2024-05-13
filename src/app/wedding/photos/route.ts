@@ -10,9 +10,10 @@ const client = new S3Client({
     credentials: { accessKeyId: process.env.S3_USER_ACCESS_KEY_ID!, secretAccessKey: process.env.S3_USER_SECRET_ACCESS_KEY! },
 });
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
+    const { imageName }= await request.json()
     try {
-        const url= await generateUploadUrl()
+        const url = await generateUploadUrl(imageName)
         return Response.json({ url })
     } catch (error) {
         console.error(error)
@@ -20,9 +21,9 @@ export async function GET(request: Request) {
     }
 }
 
-function generateUploadUrl() {
-    const imageName = `someImageName-${Date.now()}`
+function generateUploadUrl(fileName: string) {
+    const imageName = `${Date.now()}-${fileName}`
     const command = new PutObjectCommand({ Bucket: process.env.S3_BUCKET_NAME!, Key: imageName });
 
-    return getSignedUrl(client, command, { expiresIn: 3600 });
+    return getSignedUrl(client, command, { expiresIn: 7200 });
 }

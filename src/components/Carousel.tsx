@@ -21,7 +21,13 @@ export default function Carousel() {
       const files = form[0].files
 
       for (const file of files) {
-        const { url } = await fetch("/wedding/photos").then(res => res.json())
+          const { url } = await fetch("/wedding/photos", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ imageName: file.name })
+          }).then(res => res.json())
         await uploadToS3(url, file)
 
         const imageUrl = url.split('?')[0]
