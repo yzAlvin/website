@@ -14,7 +14,8 @@ const Dot = (selected: boolean) =>
     <svg className={selected ? `h-2 fill-black mx-1` : `h-2 fill-slate-400 mx-1`} xmlns="http://www.w3.org/2000/svg" viewBox="7.8 7.8 4.4 4.4"><path d="M7.8 10a2.2 2.2 0 0 0 4.4 0 2.2 2.2 0 0 0-4.4 0z" /></svg>
 
 export default function Carousel() {
-    const handleUpload = async (event) => {
+    // @ts-ignore
+    const handleUpload = async (event: any) => {
       event.preventDefault();
 
       const form = event.target
