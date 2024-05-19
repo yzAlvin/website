@@ -68,7 +68,7 @@ export default function Carousel() {
                             <DialogHeader>
                             <DialogTitle>You are too kind</DialogTitle>
                             <DialogDescription>
-                                <p>Uploading photos can be a bit slow! Please be patient</p>
+                                <p className="mb-2">Uploading photos can be a bit slow! Please be patient</p>
                                 <style>
                                   {HACK_hideFilePondCancelCSS}
                                 </style>
@@ -76,7 +76,7 @@ export default function Carousel() {
                                     files={files}
                                     onupdatefiles={setFiles}
                                     allowMultiple={true}
-                                    maxFiles={3}
+                                    maxFiles={999}
                                     server={{process: handleFilePondUpload, revert: null}}
                                     name="files"
                                     labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
