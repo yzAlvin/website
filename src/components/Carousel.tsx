@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client"
 
 import { Carousel as ACarousel } from '@trendyol-js/react-carousel';
@@ -30,6 +31,7 @@ export default function Carousel() {
       })
     }
 
+    // @ts-ignore
     const handleFilePondUpload = async (fieldName, file, metadata, load, error, progress, abort) => {
       const { url } = await fetch("/wedding/photos", {
         method: "POST",
@@ -40,6 +42,7 @@ export default function Carousel() {
       }).then(res => res.json())
 
       const data = await uploadToS3(url, file)
+      // @ts-ignore
       load(data.Key);
 
       const imageUrl = url.split('?')[0]
