@@ -1,5 +1,5 @@
 import Nav from '../components/Nav'
-import About from '../components/About'
+import About from '@/components/About'
 
 export default function Home() {
   return (

@@ -59,6 +59,9 @@ export default function Carousel() {
                 <DialogTitle>Photos</DialogTitle>
                 <DialogDescription>
                     <p className="mb-2">Uploading photos can be a bit slow!</p>
+                    <div className="flex justify-center">
+                      <img src="usagyuun_many.webp" alt="" />
+                    </div>
                     <br/>
                     <style>
                       {HACK_hideFilePondCancelCSS}
@@ -91,7 +94,11 @@ export default function Carousel() {
                   <DialogHeader>
                   <DialogTitle>Registry</DialogTitle>
                   <DialogDescription>
-                      <p>Your presence at our wedding is the greatest gift we could ask for. Should you wish to honor us with a gift, a contribution towards our future together would be sincerely appreciated.</p>
+                      <p>Your presence at our wedding is the greatest gift we could ask for.</p>
+                      <p>Should you wish to honor us with a gift, a contribution towards our future together would be sincerely appreciated.</p>
+                      <div className="flex justify-center">
+                        <img src="usagyuun.webp" alt="" />
+                      </div>
                       <br/>
                       <p><span className="font-bold">Account Name:</span> Joy and Alvin</p>
                       <p><span className="font-bold">BSB:</span> 303-432</p>
