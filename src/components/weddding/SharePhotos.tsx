@@ -14,6 +14,8 @@ import { useState } from "react";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 
+import PhotoGallery from "./PhotoGallery";
+
 export default function SharePhotos() {
   const [files, setFiles] = useState([]);
 
@@ -93,6 +95,8 @@ export default function SharePhotos() {
               allowRemove={false}
               allowRevert={false}
             />
+            <h2>Latest Photos</h2>
+            <PhotoGallery />
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
