@@ -25,8 +25,8 @@ export default function Registry() {
               Should you wish to honor us with a gift, a contribution towards
               our future together would be sincerely appreciated.
             </p>
-            <div className="flex justify-center">
-              <img src="usagyuun.webp" alt="" />
+            <div className="flex justify-center mt-4">
+              <img src="usagyuun_party.webp" alt="" />
             </div>
             <br />
             <p>
