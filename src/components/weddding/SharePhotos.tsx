@@ -72,7 +72,7 @@ export default function SharePhotos() {
       <DialogTrigger className="border rounded-lg xl:w-1/3 w-2/3 mx-auto p-2 text-slate-900 transition bg-gray-200 hover:bg-gray-400">
         Share Photos
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="mt-10 mb-10">
         <DialogHeader>
           <DialogTitle>Photos</DialogTitle>
           <DialogDescription>

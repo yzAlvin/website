@@ -32,9 +32,7 @@ async function getRecentItems(): Promise<string[]> {
 
     if (response.Contents) {
       const thousandItems = response.Contents.map((object) => object.Key!);
-      const lastFive = thousandItems.slice(
-        Math.max(thousandItems.length - 5, 0)
-      );
+      const lastFive = thousandItems.slice(-5);
       return lastFive.map(
         (imageName) =>
           `https://${bucketName}.s3.${process.env.S3_BUCKET_REGION}.amazonaws.com/${imageName}`
