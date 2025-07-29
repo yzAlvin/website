@@ -15,9 +15,7 @@ export default function About() {
         <h2 className="text-lg font-semibold">Current</h2>
 
         <ul className="list-disc list-inside text-left space-y-1">
-          <li>Digitising eye care @ <a className="text-blue-500 underline" target="_blank" href="https://www.icare-world.com/">iCare</a></li>
-          <li>Director @ <a className="text-blue-500 underline" target="_blank" href="https://www.berrytherapy.com.au/">Berry Therapy</a></li>
-          <li>Consulting @ 021.au</li>
+          <li>Looking for work :)</li>
         </ul>
       </div>
 
@@ -25,9 +23,13 @@ export default function About() {
         <h2 className="text-lg font-semibold">Past</h2>
 
         <ul className="list-disc list-inside text-left space-y-1 [&_ul]:list-[revert]">
-          <li>Early Engineer @ <a className="text-blue-500 underline" target="_blank" href="https://www.lyrebirdhealth.com/">Lyrebird Health</a></li>
+          <li>Recidivist @ <a className="text-blue-500 underline" target="_blank" href="https://www.icare-world.com/">iCare</a></li>
+          <li>Founding Engineer @ <a className="text-blue-500 underline" target="_blank" href="https://www.lyrebirdhealth.com/">Lyrebird Health</a></li>
+          <li>Freelance Consultant @ 021.au</li>
+          <li>Digitising eye care @ <a className="text-blue-500 underline" target="_blank" href="https://www.icare-world.com/">iCare</a></li>
           <li>Mentor & Contributor on <a className="text-blue-500 underline" target="_blank" href="https://exercism.org/">Exercism</a></li>
           <li>Platform Engineer @ <a className="text-blue-500 underline" target="_blank" href="https://www.myob.com/">MYOB</a></li>
+          <li>Software Engineer @ <a className="text-blue-500 underline" target="_blank" href="https://www.myob.com/">MYOB</a></li>
         </ul>
       </div>
 
